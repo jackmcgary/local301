@@ -1,21 +1,29 @@
-Home
-<br/>
+<h1>Local 301</h1>
 
-<%= image_tag 'cat.jpg' %>
+<p>
+The Local 301 is a community of creators, hustlers, hackers, artists, lovers, fighters, burnt-ends,
+and transgressors in East Austin. We're working together to make the world a little more beautiful.
+</p>
+<!--
+<p>< stream of social media accounts? ></p>
+-->
+<%# image_tag 'cat.jpg' %>
+<div class="panel">
+  <h2>Get on the email list</h2>
+  <div id="email_signup">
+    <%= form_for(Member.new, :url => email_signup_members_path, :remote => true) do |f| %>
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :email %><br>
+        <%= f.text_field :email %>
+      </div>
 
-
-- Home ... 
-  - Email List Sign-up
-  - Upcoming Events
-  - New Projects
-  - Blog / News
-- About / History / Mission
-- Join Us / Visit / Membership
-  $50 pro plan
-  $100 pro plan
-- Members / People
-- Projects
-- Calendar
-  - Agenda view
-  - Google calendar embed
-- Contact / Connect
+      <div class="actions">
+        <%= f.submit "Pump that" %>
+      </div>
+    <% end %>
+  </div>
+</div>

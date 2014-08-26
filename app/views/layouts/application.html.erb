@@ -13,7 +13,18 @@
 
   <body>
 
-    <%= yield %>
+    <div class="panel">
+      <%= render 'home/nav' %>
+    </div>
+
+    <div style="margin:20px">
+      <%= yield %>
+    </div>
+
+    <div class="panel">
+      301 Chicon, Austin, Texas. 78702
+    </div>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>

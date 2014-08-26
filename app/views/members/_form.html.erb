@@ -1,0 +1,87 @@
+<%= form_for(@member) do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+      <ul>
+      <% @member.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_birth %><br>
+    <%= f.date_select :date_of_birth %>
+  </div>
+  <div class="field">
+    <%= f.label :hometown %><br>
+    <%= f.text_field :hometown %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br>
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :twitter %><br>
+    <%= f.text_field :twitter %>
+  </div>
+  <div class="field">
+    <%= f.label :instagram %><br>
+    <%= f.text_field :instagram %>
+  </div>
+  <div class="field">
+    <%= f.label :facebook %><br>
+    <%= f.text_field :facebook %>
+  </div>
+  <div class="field">
+    <%= f.label :flickr %><br>
+    <%= f.text_field :flickr %>
+  </div>
+  <div class="field">
+    <%= f.label :pinterest %><br>
+    <%= f.text_field :pinterest %>
+  </div>
+  <div class="field">
+    <%= f.label :linkedin %><br>
+    <%= f.text_field :linkedin %>
+  </div>
+  <div class="field">
+    <%= f.label :joined_on %><br>
+    <%= f.date_select :joined_on %>
+  </div>
+  <div class="field">
+    <%= f.label :where_have_you_been %><br>
+    <%= f.text_area :where_have_you_been %>
+  </div>
+  <div class="field">
+    <%= f.label :where_will_you_go %><br>
+    <%= f.text_area :where_will_you_go %>
+  </div>
+  <% if is_admin? %>
+  <div class="field">
+    <%= f.label :membership_status %><br>
+    <%= f.select :membership_status, ["Prole","Bougie"], :include_blank => "Not a member" %>
+  </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

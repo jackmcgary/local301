@@ -1,0 +1,15 @@
+<h1><%= @event.name %></h1>
+
+<p>
+  <%= @event.starts_at.to_s(:full) %><br/>
+  <%= @event.starts_at.strftime("%-I:%M%#p") %> - <%= @event.ends_at.strftime("%-I:%M%#p") %>
+</p>
+
+<p>
+  <%= simple_format @event.description %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
+
+

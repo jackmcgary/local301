@@ -1,0 +1,26 @@
+<h1>Upcoming Events</h1>
+
+<%= link_to "Add Event", new_event_path %>
+<%= link_to "Past Events", events_path(:timeframe => "past") %>
+
+<% @events.each do |event| %>
+  <div class="panel">
+    <h3><%= link_to event.name, event %></h3>
+    <p>
+      <%= event.starts_at.to_s(:full) %><br/>
+      <%= event.starts_at.strftime("%-I:%M%#p") %> - <%= event.ends_at.strftime("%-I:%M%#p") %>
+    </p>
+    <% if event.website %>
+      <p><%= event.website %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<!--
+<td><%# link_to 'Show', event %></td>
+<td><%# link_to 'Edit', edit_event_path(event) %></td>
+<td><%# link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<%= link_to 'New Event', new_event_path %>
+-->
+
+

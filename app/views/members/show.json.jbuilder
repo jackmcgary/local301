@@ -1,0 +1,1 @@
+json.extract! @member, :id, :name, :phone, :address, :date_of_birth, :hometown, :website, :twitter, :instagram, :facebook, :flickr, :pinterest, :linkedin, :joined_on, :where_have_you_been, :where_will_you_go, :created_at, :updated_at

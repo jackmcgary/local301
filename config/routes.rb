@@ -1,10 +1,23 @@
 Rails.application.routes.draw do
+  resources :projects
+
+  resources :events
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  resources :members do
+    collection do
+      get :list
+      post :email_signup
+    end
+  end
+  get 'mission' => "home#mission", as: :mission
+  get 'brainstorm' => "home#brainstorm", as: :brainstorm
+  get 'contact' => "home#contact", as: :contact
   get ':action' => "home"
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
