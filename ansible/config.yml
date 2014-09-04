@@ -12,8 +12,8 @@
 - hosts: dbservers
   sudo: yes
   roles:
-    - {role: pg, tags: pg}
-    # - {role: sqlite, tags: sqlite} # really simple applications only
+    # - {role: pg, tags: pg}
+    - {role: sqlite, tags: sqlite} # really simple applications only
   handlers:  
   - name: restart ssh
     service: name=ssh state=restarted
