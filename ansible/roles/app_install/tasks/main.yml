@@ -64,14 +64,27 @@
 # setup unicorn as a service
 - name: UNICORN | write unicorn.sh template as executable
   action: template src=../templates/unicorn.sh.j2 dest={{appdir}}/config/unicorn.sh mode=0777
+  tags:
+    - unicorn
 
 - name: UNICORN | symlink unicorn.sh as service
   file: src={{appdir}}/config/unicorn.sh dest=/etc/init.d/unicorn_{{appname}} owner={{user}} group={{group}} state=link
+  tags:
+    - unicorn
+
+- name: UNICORN | ensure directory exists
+  shell: bash -lc "cd {{appdir}} && mkdir pids && touch pids/unicorn_{{appname}}.pid" #"
+  tags:
+    - unicorn
 
 - name: UNICORN | ensure app permissions
   file: path=/home/{{user}}/app owner={{user}} group={{group}} mode=0777 recurse=yes
   sudo: yes
+  tags:
+    - unicorn
 
 - name: UNICORN | app service on boot
   service: name=unicorn_{{appname}} state=started enabled=yes
   sudo: yes
+  tags:
+    - unicorn

@@ -1,7 +1,7 @@
 # CUSTOMIZE THIS FOR YOUR APP
 domain_name: "local301.com"
 appname: "local301"
-git_repo: "git@github.com:ryanmcgary/skelly_rails.git"
+git_repo: "git@github.com:jackmcgary/local301.git"
 dbpass: "BLUESCLUES"
 
 # DON'T ALTER THE BELOW VALUES
