@@ -1,0 +1,12 @@
+---
+  - name: restart nginx
+    action: service name=nginx pattern=/etc/init.d/nginx state=restarted enabled=yes
+    tags:
+      - nginx
+
+  - name: delete app.conf
+    action: file dest=/etc/nginx/sites-enabled/{{domain_name}}.conf state=absent
+    notify:
+      - restart nginx
+    tags:
+      - remove_app

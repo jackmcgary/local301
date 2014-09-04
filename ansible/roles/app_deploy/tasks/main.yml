@@ -1,0 +1,39 @@
+- name: GIT | clone rails app from git
+  git: repo=git@github.com:ryanmcgary/skelly_rails.git dest={{appdir}}
+      accept_hostkey=True
+  sudo: no
+  register: git
+  notify: # You need to customize this depending on your build
+    - ensure app permissions
+    - restart app
+    - restart nginx
+    # - restart sidekiq
+  tags:
+    - deploy
+
+- include: rbenv.yml # needed. otherwise ruby versions won't be updated on .ruby-version change
+
+- name: GEM | install project gems
+  shell: bash -lc "cd {{appdir}} && rbenv exec bundle install" #"
+
+- name: precompile assets for production
+  shell: bash -lc "cd {{appdir}} && RAILS_ENV=production bundle exec rake assets:precompile" #"
+  ignore_errors: True
+
+- name: DB | check if database exists
+  shell: bash -lc "cd {{appdir}} && rake db:version" #"
+  ignore_errors: True
+  register: rake_db_version_result
+
+- name: DB | create database
+  shell: bash -lc "cd {{appdir}} && rake db:create:all"
+  when: rake_db_version_result|failed
+
+- name: DB | check if migration added
+  shell: bash -lc "cd {{appdir}} && rake db:abort_if_pending_migrations RAILS_ENV='production'" #"
+  ignore_errors: True
+  register: migration_change_result
+
+- name: DB| apply database migrations
+  shell: bash -lc "cd {{appdir}} && rake db:migrate RAILS_ENV='production'" #"
+  when: migration_change_result|failed

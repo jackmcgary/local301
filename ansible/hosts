@@ -1,0 +1,23 @@
+[vms]
+golden1 ansible_ssh_host=192.168.33.10 ansible_ssh_user={{user}}
+golden2 ansible_ssh_host=192.168.33.11 ansible_ssh_user={{user}}
+golden3 ansible_ssh_host=192.168.33.12 ansible_ssh_user={{user}}
+
+[webservers]
+golden1
+golden2
+golden3
+
+[dbservers]
+golden1
+golden2
+golden3
+
+[loadbalancers]
+golden1
+golden2
+golden3
+
+; [elasticsearch]
+
+; [production]

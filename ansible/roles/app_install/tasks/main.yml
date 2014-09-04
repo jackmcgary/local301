@@ -1,0 +1,77 @@
+---
+- name: clone rails app from git
+  git: repo={{git_repo}} dest={{appdir}}
+      accept_hostkey=True
+  sudo: no
+  register: git
+  notify:
+    - restart app
+    - restart nginx
+    - ensure app permissions
+  tags:
+    - deploy
+
+- include: rbenv.yml
+
+- name: GEM | install bundler
+  shell: bash -lc "cd {{appdir}} && rbenv exec gem install --no-ri --no-rdoc bundle"
+
+- name: GEM | install project gems
+  shell: bash -lc "cd {{appdir}} && rbenv exec bundle install" #"
+  notify:
+    - restart app
+    - restart nginx
+    - ensure app permissions
+  tags:
+    - deploy
+
+- name: APP | precompile assets for production
+  shell: bash -lc "cd {{appdir}} && RAILS_ENV=production bundle exec rake assets:precompile"
+  tags:
+    - deploy
+
+- name: DB | check if database exists
+  shell: bash -lc "cd {{appdir}} && rake db:version" #"
+  ignore_errors: True
+  register: rake_db_version_result
+  tags:
+    - deploy
+    - nginx_load_balancer # this is a super hack right now to ensure that when a server is designated as a load balancer the IP address facts are gathered
+
+- name: DB | create database
+  shell: bash -lc "cd {{appdir}} && rake db:create:all"
+  when: rake_db_version_result|failed
+  tags:
+    - deploy
+
+- name: DB | check if migration added
+  shell: bash -lc "cd {{appdir}} && rake db:abort_if_pending_migrations RAILS_ENV='production'" #"
+  ignore_errors: True
+  register: migration_change_result
+  tags:
+    - deploy
+
+- name: DB | apply database migrations
+  shell: bash -lc "cd {{appdir}} && rake db:migrate RAILS_ENV='production'" #"
+  when: migration_change_result|failed
+  notify:
+    - restart app
+    - restart nginx
+    - ensure app permissions
+  tags:
+    - deploy
+
+# setup unicorn as a service
+- name: UNICORN | write unicorn.sh template as executable
+  action: template src=../templates/unicorn.sh.j2 dest={{appdir}}/config/unicorn.sh mode=0777
+
+- name: UNICORN | symlink unicorn.sh as service
+  file: src={{appdir}}/config/unicorn.sh dest=/etc/init.d/unicorn_{{appname}} owner={{user}} group={{group}} state=link
+
+- name: UNICORN | ensure app permissions
+  file: path=/home/{{user}}/app owner={{user}} group={{group}} mode=0777 recurse=yes
+  sudo: yes
+
+- name: UNICORN | app service on boot
+  service: name=unicorn_{{appname}} state=started enabled=yes
+  sudo: yes

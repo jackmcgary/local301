@@ -1,0 +1,7 @@
+---
+- name: App 777 permission
+  file: path=/home/{{user}}/app owner={{user}} group={{group}} mode=0777 recurse=yes
+  sudo: yes
+  tags:
+    - reboot
+    - deploy

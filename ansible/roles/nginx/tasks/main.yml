@@ -1,0 +1,5 @@
+- include: setup-nginx.yml
+
+- name: nginx services on boot
+  service: name=nginx state=started enabled=yes
+  sudo: yes
