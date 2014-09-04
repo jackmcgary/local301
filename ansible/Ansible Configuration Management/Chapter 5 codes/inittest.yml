@@ -1,7 +1,0 @@
----
-- name: Test the new init module
-  hosts: testmachine
-  user: root
-  tasks:
-   - name: Set the init level to 5
-     init: runlevel=5
