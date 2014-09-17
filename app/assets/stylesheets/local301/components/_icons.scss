@@ -1,0 +1,62 @@
+.icon-hamburger {
+	font-family: $body-font-family;	
+	color: $body-font-color;
+
+	&:before {
+		content: '';
+		display: block;
+	}
+
+	&.icon-hamburger--nav {
+		text-align: center;
+		min-width: 75px;
+		color: $steel;
+
+		> svg {
+			@include inline-block();
+			vertical-align: middle;
+			height: rem-calc(80);
+			width: rem-calc(48);
+			fill: $steel;
+			stroke: $body-bg;
+		}
+	}
+}
+
+.off-canvas-list a.icon-side-link {
+	line-height: $tabbar-height;
+}
+a.icon-side-link svg,
+a.icon-side-link i {
+	@include inline-block();
+	vertical-align: middle;
+}
+
+// icon modifiers
+@mixin icon-color($color, $tint:20%) {
+	fill: $color;
+	stroke: none;
+
+	g, path {
+		fill: $color;
+		stroke: none;
+	}
+
+	&:hover {
+		fill: tint($color, $tint);
+
+		g, path {
+			fill: tint($color, $tint);
+		}
+	}
+}
+
+.-icon-white {
+	@include icon-color($white);
+}
+.-offcanvas-color {
+	@include icon-color($off-canvas-link-color, 100%);
+	@include transition(color 300ms);
+}
+
+// https://www.iconfinder.com/icons/287096/action_call_to_action_hand_imput_kiler_knife_ui_icon#size=128

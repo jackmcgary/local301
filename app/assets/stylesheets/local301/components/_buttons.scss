@@ -1,0 +1,31 @@
+$local301-button-padding: 15px 16px 14px;
+$local301-large-button-padding: 12px 17px 10px;
+
+.local301-button {
+	text-transform: uppercase;
+	padding: $local301-button-padding;
+
+	&.large {
+		padding: $local301-large-button-padding;
+	}
+}
+
+
+@media #{$medium-only} {
+	.local301-button {
+
+		&.large {
+			font-size: $font-size-large;
+		}
+	}
+}
+
+
+@media #{$large-up} {
+	.local301-button {
+
+		&.large {
+			font-size: $font-size-xlarge;
+		}
+	}
+}

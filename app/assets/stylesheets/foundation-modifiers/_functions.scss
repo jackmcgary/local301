@@ -1,0 +1,15 @@
+@mixin font-smoothing {
+  font-weight: 100;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin inline-block($vertical:top) {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: $vertical;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  float: none;
+}

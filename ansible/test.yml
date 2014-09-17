@@ -1,6 +1,6 @@
 # TEST SSH Forwarding!
 - hosts: vms
-  sudo: true
+  sudo: no
   tasks:
   # link these handlers up somehow:
   # ssh-add -l must have an identity listed. if not run the below command

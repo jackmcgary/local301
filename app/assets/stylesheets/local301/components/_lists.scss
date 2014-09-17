@@ -1,0 +1,55 @@
+.local301-list {
+	> li {
+		color: $primary-color;
+
+		> span {
+			color: $body-font-color;
+		}
+	}
+}
+
+
+
+// Member list
+.local301-member-list {
+	@extend .-unstyled-list;
+
+	> li {
+		display: block;
+		margin-bottom: $large-baseline;
+	}
+}
+
+.local301-member-list__profiles {
+	position: relative;
+	padding-bottom: 75%;
+}
+.local301-member-list__profile {
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-position: center center;
+	background-size: cover;
+	text-align: center;
+
+	z-index: 1;
+
+	> * {
+		@extend .l-center-all;
+		top: 44%;
+	}
+}
+
+.local301-member-list__profile--hover {
+	z-index: 2;
+	opacity: 0;
+
+	@include transition(opacity 300ms);
+
+	&:hover {
+		opacity: 1;
+	}
+}

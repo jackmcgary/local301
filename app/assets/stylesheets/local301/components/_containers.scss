@@ -1,0 +1,27 @@
+$local301-high-contrast-background-color: #11181c;
+
+/* Sets up a container with allowing a darkened background */
+.container-opacity-bg {
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba($local301-high-contrast-background-color, .2);
+	}
+
+
+	> * {
+		position: relative;
+		z-index: 2;
+	}
+}
+
+.local301-content {
+	background: $local301-high-contrast-background-color;
+}

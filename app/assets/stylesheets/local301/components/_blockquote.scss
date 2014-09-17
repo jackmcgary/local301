@@ -1,0 +1,12 @@
+blockquote.local301-blockquote {
+	width: 70%;
+	margin: $xxlarge-baseline 0 $xxlarge-baseline 10%;
+	padding-top: 0;
+	border-left: 2px solid $primary-color;
+	text-transform: uppercase;
+	color: $steel;
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: bold;
+	}
+}

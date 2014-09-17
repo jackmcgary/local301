@@ -1,0 +1,31 @@
+.-unstyled-list {
+	list-style: none;
+	margin-left: auto;
+}
+.-pointer {
+	cursor: pointer !important;
+}
+.-pointer-default {
+	cursor: default !important;
+}
+.-unfocus:focus {
+	outline: none;
+}
+
+
+/* Border Radius */
+.-radius {
+	border-radius: $global-radius !important;
+}
+.-round {
+	border-radius: 100px !important;
+}
+
+/* Animations */
+.-backface-visible {
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+}
+.-trans.animated {
+	opacity: inherit;
+}

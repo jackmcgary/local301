@@ -1,0 +1,27 @@
+@import "global";
+
+/* Floating */
+.-fl {
+	float: left !important;
+}
+.-fr {
+	float: right !important;
+}
+
+// Conditional Floating
+@each $mediaQuery in $mediaQueries {
+	$index: index($mediaQueries, $mediaQuery);
+	$reference: nth($baselineRefs, $index);
+	
+	@media #{$mediaQuery} {
+		.#{$reference}-fl {
+			float: left !important;
+		}
+		.#{$reference}-fr {
+			float: right !important;
+		}
+		.#{$reference}-fn {
+			float: none !important;
+		}
+	}
+}

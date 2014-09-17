@@ -1,0 +1,14 @@
+/* $local301-high-contrast-background-color is defined in _containers.scss */
+
+.local301-footer {
+	background: $local301-high-contrast-background-color;
+}
+
+.local301-footer input[type=text],
+.local301-footer input[type=date],
+.local301-footer input[type=email],
+.local301-footer input[type=password],
+.local301-footer input[type=number],
+.local301-footer textarea {
+  color: #fff
+}

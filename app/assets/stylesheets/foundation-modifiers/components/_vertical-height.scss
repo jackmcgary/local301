@@ -1,0 +1,377 @@
+@import "global";
+
+/* margins */
+
+.-mb {
+	margin-bottom: $default-baseline !important;
+}
+.-mt {
+	margin-top: $default-baseline !important;
+}
+.-ml {
+	margin-left: $default-baseline !important;
+}
+.-mr {
+	margin-right: $default-baseline !important;
+}
+.-smb {
+	margin-bottom: $small-baseline !important;
+}
+.-smt {
+	margin-top: $small-baseline !important;
+}
+.-sml {
+	margin-left: $small-baseline !important;
+}
+.-smr {
+	margin-right: $small-baseline !important;
+}
+.-xsmb {
+	margin-bottom: $xsmall-baseline !important;
+}
+.-xsmt {
+	margin-top: $xsmall-baseline !important;
+}
+.-xsml {
+	margin-left: $xsmall-baseline !important;
+}
+.-xsmr {
+	margin-right: $xsmall-baseline !important;
+}
+.-lmb {
+	margin-bottom: $large-baseline !important;
+}
+.-lmt {
+	margin-top: $large-baseline !important;
+}
+.-lml {
+	margin-left: $large-baseline !important;
+}
+.-lmr {
+	margin-right: $large-baseline !important;
+}
+.-xlmb {
+	margin-bottom: $xlarge-baseline !important;
+}
+.-xlmt {
+	margin-top: $xlarge-baseline !important;
+}
+.-xlml {
+	margin-left: $xlarge-baseline !important;
+}
+.-xlmr {
+	margin-right: $xlarge-baseline !important;
+}
+.-xxlmt {
+	margin-top: $xxlarge-baseline !important;
+}
+.-xxlmb {
+	margin-bottom: $xxlarge-baseline !important;
+}
+.-xxlml {
+	margin-left: $xxlarge-baseline !important;
+}
+.-xxlmr {
+	margin-right: $xxlarge-baseline !important;
+}
+.-nmb {
+	margin-bottom: 0 !important;
+}
+.-nmt {
+	margin-top: 0 !important;
+}
+.-nml {
+	margin-left: 0 !important;
+}
+.-nmr {
+	margin-right: 0 !important;
+}
+
+
+/* Paddings */
+.-pb {
+	padding-bottom: $default-baseline !important;
+}
+.-pt {
+	padding-top: $default-baseline !important;
+}
+.-pl {
+	padding-left: $default-baseline !important;
+}
+.-pr {
+	padding-right: $default-baseline !important;
+}
+.-spb {
+	padding-bottom: $small-baseline !important;
+}
+.-spt {
+	padding-top: $small-baseline !important;
+}
+.-spl {
+	padding-left: $small-baseline !important;
+}
+.-spr {
+	padding-right: $small-baseline !important;
+}
+.-xspb {
+	padding-bottom: $xsmall-baseline !important;
+}
+.-xspt {
+	padding-top: $xsmall-baseline !important;
+}
+.-xspl {
+	padding-left: $xsmall-baseline !important;
+}
+.-xspr {
+	padding-right: $xsmall-baseline !important;
+}
+.-spad {
+	padding: $small-baseline !important;
+}
+.-lpb {
+	padding-bottom: $large-baseline !important;
+}
+.-lpt {
+	padding-top: $large-baseline !important;
+}
+.-lpl {
+	padding-left: $large-baseline !important;
+}
+.-lpr {
+	padding-right: $large-baseline !important;
+}
+.-lpad {
+	padding: $large-baseline !important;
+}
+.-xlpt {
+	padding-top: $xlarge-baseline !important;
+}
+.-pad {
+	padding: $default-baseline !important;
+}
+.-npb {
+	padding-bottom: 0px !important;
+}
+.-npl {
+	padding-left: 0px !important;
+}
+.-npr {
+	padding-right: 0px !important;
+}
+.-npt {
+	padding-top: 0px !important;
+}
+
+/* Responsive Margins + Padding */
+$mediaQueries: ($small-only, $medium-only, $medium-up, $large-only, $large-up);
+$baselineRefs: "-small", "-medium", "-medium-up", "-large", "-large-up";
+
+@each $mediaQuery in $mediaQueries {
+	$index: index($mediaQueries, $mediaQuery);
+	$reference: nth($baselineRefs, $index);
+	
+	@media #{$mediaQuery} {
+
+		.#{$reference}-xsmt {
+			margin-top: $xsmall-baseline !important;
+		}
+		.#{$reference}-smt {
+			margin-top: $small-baseline !important;
+		}
+		.#{$reference}-mt {
+			margin-top: $default-baseline !important;
+		}
+		.#{$reference}-lmt {
+			margin-top: $large-baseline !important;
+		}
+		.#{$reference}-xlmt {
+			margin-top: $xlarge-baseline !important;
+		}
+		.#{$reference}-xxlmt {
+			margin-top: $xxlarge-baseline !important;
+		}
+		.#{$reference}-xxxlmt {
+			margin-top: $xxxlarge-baseline !important;
+		}
+
+		.#{$reference}-xsml {
+			margin-left: $xsmall-baseline !important;
+		}
+		.#{$reference}-sml {
+			margin-left: $small-baseline !important;
+		}
+		.#{$reference}-ml {
+			margin-left: $default-baseline !important;
+		}
+		.#{$reference}-lml {
+			margin-left: $large-baseline !important;
+		}
+		.#{$reference}-xlml {
+			margin-left: $xlarge-baseline !important;
+		}
+		.#{$reference}-xxlml {
+			margin-left: $xxlarge-baseline !important;
+		}
+		.#{$reference}-xxxlml {
+			margin-left: $xxxlarge-baseline !important;
+		}
+
+		.#{$reference}-xsmb {
+			margin-bottom: $xsmall-baseline !important;
+		}
+		.#{$reference}-smb {
+			margin-bottom: $small-baseline !important;
+		}
+		.#{$reference}-mb {
+			margin-bottom: $default-baseline !important;
+		}
+		.#{$reference}-lmb {
+			margin-bottom: $large-baseline !important;
+		}
+		.#{$reference}-xlmb {
+			margin-bottom: $xlarge-baseline !important;
+		}
+		.#{$reference}-xxlmb {
+			margin-bottom: $xxlarge-baseline !important;
+		}
+		.#{$reference}-xxxlmb {
+			margin-bottom: $xxxlarge-baseline !important;
+		}
+
+		.#{$reference}-xsmr {
+			margin-right: $xsmall-baseline !important;
+		}
+		.#{$reference}-smr {
+			margin-right: $small-baseline !important;
+		}
+		.#{$reference}-mr {
+			margin-right: $default-baseline !important;
+		}
+		.#{$reference}-lmr {
+			margin-right: $large-baseline !important;
+		}
+		.#{$reference}-xlmr {
+			margin-right: $xlarge-baseline !important;
+		}
+		.#{$reference}-xxlmr {
+			margin-right: $xxlarge-baseline !important;
+		}
+		.#{$reference}-xxxlmr {
+			margin-right: $xxxlarge-baseline !important;
+		}
+
+		.#{$reference}-nmr {
+			margin-right: 0 !important;
+		}
+		.#{$reference}-nml {
+			margin-left: 0 !important;
+		}
+		.#{$reference}-nmt {
+			margin-top: 0 !important;
+		}
+		.#{$reference}-nmb {
+			margin-bottom: 0 !important;
+		}
+
+		.#{$reference}-xspt {
+			padding-top: $xsmall-baseline !important;
+		}
+		.#{$reference}-spt {
+			padding-top: $small-baseline !important;
+		}
+		.#{$reference}-pt {
+			padding-top: $default-baseline !important;
+		}
+		.#{$reference}-lpt {
+			padding-top: $large-baseline !important;
+		}
+		.#{$reference}-xlpt {
+			padding-top: $xlarge-baseline !important;
+		}
+		.#{$reference}-xxlpt {
+			padding-top: $xxlarge-baseline !important;
+		}
+		.#{$reference}-xxxlpt {
+			padding-top: $xxxlarge-baseline !important;
+		}
+
+		.#{$reference}-xspl {
+			padding-left: $xsmall-baseline !important;
+		}
+		.#{$reference}-spl {
+			padding-left: $small-baseline !important;
+		}
+		.#{$reference}-pl {
+			padding-left: $default-baseline !important;
+		}
+		.#{$reference}-lpl {
+			padding-left: $large-baseline !important;
+		}
+		.#{$reference}-xlpl {
+			padding-left: $xlarge-baseline !important;
+		}
+		.#{$reference}-xxlpl {
+			padding-left: $xxlarge-baseline !important;
+		}
+		.#{$reference}-xxxlpl {
+			padding-left: $xxxlarge-baseline !important;
+		}
+
+		.#{$reference}-xspb {
+			padding-bottom: $xsmall-baseline !important;
+		}
+		.#{$reference}-spb {
+			padding-bottom: $small-baseline !important;
+		}
+		.#{$reference}-pb {
+			padding-bottom: $default-baseline !important;
+		}
+		.#{$reference}-lpb {
+			padding-bottom: $large-baseline !important;
+		}
+		.#{$reference}-xlpb {
+			padding-bottom: $xlarge-baseline !important;
+		}
+		.#{$reference}-xxlpb {
+			padding-bottom: $xxlarge-baseline !important;
+		}
+		.#{$reference}-xxxlpb {
+			padding-bottom: $xxxlarge-baseline !important;
+		}
+
+		.#{$reference}-xspr {
+			padding-right: $xsmall-baseline !important;
+		}
+		.#{$reference}-spr {
+			padding-right: $small-baseline !important;
+		}
+		.#{$reference}-pr {
+			padding-right: $default-baseline !important;
+		}
+		.#{$reference}-lpr {
+			padding-right: $large-baseline !important;
+		}
+		.#{$reference}-xlpr {
+			padding-right: $xlarge-baseline !important;
+		}
+		.#{$reference}-xxlpr {
+			padding-right: $xxlarge-baseline !important;
+		}
+		.#{$reference}-xxxlpr {
+			padding-right: $xxxlarge-baseline !important;
+		}
+
+		.#{$reference}-npr {
+			padding-right: 0 !important;
+		}
+		.#{$reference}-npl {
+			padding-left: 0 !important;
+		}
+		.#{$reference}-npt {
+			padding-top: 0 !important;
+		}
+		.#{$reference}-npb {
+			padding-bottom: 0 !important;
+		}
+	}
+}

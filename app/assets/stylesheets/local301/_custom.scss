@@ -1,0 +1,22 @@
+strong {
+	color: $primary-color;
+}
+
+#home-splash {
+	background: url(/assets/gotg.jpg) no-repeat center left;
+	background-size: cover;
+}
+#two-col-visual {
+	background: url(/assets/gotg-poster.jpg) no-repeat top center;
+	background-size: cover;
+	padding-bottom: 50%;
+}
+
+*::selection {
+	color: $white;
+	background: $primary-color;
+}
+*::-moz-selection {
+	color: $white;
+	background: $primary-color;
+}

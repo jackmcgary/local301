@@ -1,29 +1,60 @@
-<h1>Local 301</h1>
 
-<p>
-The Local 301 is a community of creators, hustlers, hackers, artists, lovers, fighters, burnt-ends,
-and transgressors in East Austin. We're working together to make the world a little more beautiful.
-</p>
+            
+            <section id="home-splash" class="local301-main-container__full-height container-opacity-bg -small-lpt -medium-up-xlpt">
+                <div class="clearfix -medium-lpl -medium-up-xxxlpt -large-up-xlpl" role="main">
+                    <div class="small-12 medium-10 large-8 columns">                        
+                        <p class="t-intro -xlmb">
+                        The old depot at 3rd and chicon,<br/>
+                        now mad with lovers and fighters,<br/>
+                        saints and transgressors,<br/>
+                        lemon shandys and burnt-ends,<br/>
+                        chasing the dirty crown down fourth,<br/>
+                        boarding the midnight transcontinental,<br/>
+                        not sure where we're going,<br>
+                        or when we're coming back,<br/>
+                        but if we ever make it, Dad's gonna say<br/>
+                        good job, son.<br/> good job.
+                        </p>
+                        <hr/>
+                        <h4>Join our email list</h4>
 <!--
-<p>< stream of social media accounts? ></p>
--->
-<%# image_tag 'cat.jpg' %>
-<div class="panel">
-  <h2>Get on the email list</h2>
-  <div id="email_signup">
-    <%= form_for(Member.new, :url => email_signup_members_path, :remote => true) do |f| %>
-      <div class="field">
-        <%= f.label :name %><br>
-        <%= f.text_field :name %>
-      </div>
-      <div class="field">
-        <%= f.label :email %><br>
-        <%= f.text_field :email %>
-      </div>
+                        running from the past 
+                        sri-heads and shit-heads,<br/>
+                        the locals and transcontinentals.
 
-      <div class="actions">
-        <%= f.submit "Pump that" %>
-      </div>
-    <% end %>
-  </div>
-</div>
+                        put on your big boy pants and get to work.
+We're a den of madmen, lovers, fighters, transgressors, charletans and burnt-ends over on the east side.
+
+                        We've got a big 'ol warehouse, hot wifi, and some lemon shandys.
+    -->                    
+
+                        
+<!--
+                        <a href="" class="large button local301-button -small-xlmb -medium-up-xxxlmb">
+                            Enlist
+                        </a>
+                        -->
+                    </div>
+                    
+                    <div class="small-12 medium-10 large-8 columns">
+                      <%= form_for(Member.new, :url => email_signup_members_path, :remote => true, "data-abide" => "data-abide") do |f| %>
+                          <label>
+                              Name
+                              <%= f.text_field :name, "required pattern" => "[a-zA-Z]+" %>
+                          </label>
+
+                          <label>
+                              Email
+                              <%= f.text_field :email, "required" => "required" %>
+                          </label>
+
+                          <%= f.submit "Pump that", :class => "button -primary-bg" %>
+                      <% end %>
+                    </div>
+                    
+                    <div class="small-12 columns -mb -smt">
+                        301 Chicon, Austin, Texas. 78702
+                    </div>
+
+                </div>
+            </section>

@@ -16,4 +16,8 @@
 //= require turbolinks
 //= require_tree .
 
+'use strict'
+
+window.local301 = {}
+
 $(function(){ $(document).foundation(); });

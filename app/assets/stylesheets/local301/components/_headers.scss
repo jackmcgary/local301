@@ -1,0 +1,128 @@
+$header-intro-hr-width: rem-calc(120);
+$header-intro-font-weight: 500;
+
+.local301-header-intro {
+	color: $ghost;
+
+	/* Reverse mobile font scaling */
+	h1 { font-size: $h1-font-size; }
+	h2 { font-size: $h2-font-size; }
+	h3 { font-size: $h3-font-size; }
+	h4 { font-size: $h4-font-size; }
+	h5 { font-size: $h5-font-size; }
+	h6 { font-size: $h6-font-size; }
+
+	h1, h2, h3, h4, h5, h6 {
+		letter-spacing: -1px;
+		font-weight: $header-intro-font-weight;
+	}
+
+	h1, h2 {
+		margin-bottom: $large-baseline;
+
+		& + hr {
+			margin-bottom: $large-baseline;
+		}
+	}
+	h3, h4, h5, h6 {
+		margin-bottom: $default-baseline;
+
+		& + hr {
+			margin-bottom: $default-baseline;
+		}
+	}
+
+	hr {
+		width: $header-intro-hr-width;
+		border: 1px solid $hr-border-color;
+	}
+}
+
+@media #{$medium-only} {
+	.local301-header-intro h1 {
+		font-size: rem-calc(74);
+	}
+}
+
+@media #{$large-up} {
+	.local301-header-intro h1 {
+		font-size: rem-calc(84);
+	}
+}
+
+
+
+.local301-header-article {
+	color: $ghost;
+	
+	hr {
+		width: rem-calc(45);
+		margin-bottom: $small-baseline;
+		border-top: 1px solid $primary-color;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		margin: 0;
+	}
+}
+
+@media #{$small-up} {
+	.local301-header-article--overlay {
+		position: relative;
+		padding-bottom: $small-baseline;
+		margin-top: -92px;
+
+		hr, h1, h2, h3, h4, h5, h6 {
+			position: relative;
+			z-index: 2;
+		}
+
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -10000px;
+			right: -10000px;
+			bottom: -9px;
+			background: rgba($body-bg, 0.65);
+
+			z-index: 1;
+		}
+	}
+}
+
+@media #{$medium-up} {
+	.local301-header-article {
+		hr { 
+			width: rem-calc(70);
+			border: 1px solid $primary-color; // Thicken border
+		}
+
+		h1 {
+			font-size: rem-calc(50);
+		}
+	}
+
+	.local301-header-article--overlay {
+		margin-top: -108px;
+	}
+}
+
+@media #{$large-up} {
+	.local301-header-article {
+		h1 {
+			font-size: rem-calc(60);
+		}
+	}
+
+	.local301-header-article--overlay {
+		margin-top: inherit;
+		padding-bottom: initial;
+
+		&:before {
+			display: none;
+		}
+	}
+}
+

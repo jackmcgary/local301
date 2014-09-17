@@ -1,0 +1,133 @@
+$local301-main-navigation-display-height: 80;
+$local301-side-navigation-display-width: 200;
+$local301-side-navigation-open-width: 230;
+$local301-main-containers-transition: ease-in-out;
+$local301-main-containers-transition-timing: 300ms;
+
+
+@media #{$small-only} {
+	.full-viewport-height.medium-up-full-viewport-height,
+	.full-viewport-height.large-up-full-viewport-height {
+		height: auto;
+	}
+}
+
+@media #{$medium-only} {
+	.full-viewport-height.large-up-full-viewport-height {
+		height: auto;
+	}
+}
+
+@media #{$medium-up} {
+
+	.local301-side-nav {
+		display: block;
+		float: left;
+		position: static;
+		overflow: hidden;
+
+		width: 100%;
+		max-width: $local301-side-navigation-display-width + 0px;
+		@include transform(none);
+		@include transition(max-width $local301-main-containers-transition-timing $local301-main-containers-transition);
+
+		li {
+			display: block;
+
+			> a {
+				display: block;
+				white-space: nowrap;
+				border-width: 0 !important;
+
+				> svg,
+				> i {
+					width: rem-calc(50);
+					height: rem-calc(50);
+					padding-left: $small-baseline;
+					padding-right: $small-baseline;
+				}
+			}
+		}
+	}
+
+	.local301-side-nav.open {
+		max-width: rem-calc($local301-side-navigation-open-width);
+	}
+
+
+	/* adjacent to .local301-side-nav */
+	.local301-main-container {
+		
+		/***********************************************************
+		*  The .local301-main-top-bar container above this element 
+		*  becomes 75px wide so this element must move up via top 0.
+		************************************************************/
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+
+		/***************************************************
+		* Float this element along side .local301-side-nav
+		****************************************************/
+		left: auto;
+		@include calc(width, '100% - #{($local301-side-navigation-display-width + 0px)}');
+		@include transition(width $local301-main-containers-transition-timing $local301-main-containers-transition);
+	}
+
+	.local301-main-container__full-height {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+	}
+
+	// When the side nav is opened
+	.local301-side-nav.open + .local301-main-container {
+		@include calc(width, '100% - #{($local301-side-navigation-open-width + 0px)}');
+	}
+
+	// Two Column Layout
+	.local301-main-container.local301-main-container--two-columns {
+		position: relative;
+
+		/*****************************************
+		* Floatin prevents child float bugginess
+		******************************************/
+		float: left;
+		margin-top: rem-calc($local301-main-navigation-display-height * -1);
+
+		.local301-main-container__full-height {
+			position: static;
+			width: 100%;
+		}
+	}
+}
+
+@media #{$large-up} {
+	.local301-main-container.local301-main-container--two-columns {
+		position: absolute;
+		float: none;
+		@include calc(width, '100% - #{($local301-side-navigation-display-width + 0px)}');
+
+		left: auto;
+		top: 0;
+		padding-left: inherit;
+		margin-top: inherit;
+
+		.local301-main-container__full-height {
+			position: absolute;
+			width: 50%;
+			right: auto;
+
+			&:last-child {
+				left: auto;
+				right: 0;
+			}
+		}
+	}
+	.local301-main-container__full-height {
+		overflow: auto;
+	}
+}

@@ -1,0 +1,12 @@
+.t-intro {
+	color: $ghost;
+	font-size: rem-calc(21);
+	line-height: inherit;
+}
+
+@media #{$medium-up} {
+	.t-intro {
+		font-size: rem-calc(28);
+		line-height: 1.4;
+	}
+}

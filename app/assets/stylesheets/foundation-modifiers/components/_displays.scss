@@ -1,0 +1,99 @@
+@import "global";
+
+/* display */
+.-inline-block {
+	display: -moz-inline-stack;
+	display: inline-block;
+    vertical-align: top;
+    float: none;
+}
+.-inline-block-mid {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
+.-inline-block-init {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: initial;
+	float: none;
+}
+.-inline-block-bottom {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: bottom;
+	float: none;
+}
+.-db {
+	display: block !important;
+}
+.-dn {
+	display: none !important;
+}
+.-inline {
+	display: inline !important;
+}
+
+@each $mediaQuery in $mediaQueries {
+	$index: index($mediaQueries, $mediaQuery);
+	$reference: nth($baselineRefs, $index);
+
+	@media #{$mediaQuery} {
+		.#{$reference}-db {
+			display: block !important;
+		}
+		.#{$reference}-dn {
+			display: none !important;
+		}
+		.#{$reference}-inline {
+			display: inline !important;
+		}
+		.#{$reference}-inline-block {
+			@extend .-inline-block;
+		}
+	}
+}
+
+/* Floating */
+.-fl {
+	float: left !important;
+}
+.-fr {
+	float: right !important;
+}
+
+// Conditional Floating
+@each $mediaQuery in $mediaQueries {
+	$index: index($mediaQueries, $mediaQuery);
+	$reference: nth($baselineRefs, $index);
+	
+	@media #{$mediaQuery} {
+		.#{$reference}-fl {
+			float: left !important;
+		}
+		.#{$reference}-fr {
+			float: right !important;
+		}
+		.#{$reference}-fn {
+			float: none !important;
+		}
+	}
+}
+
+/* General Positions, Displays, and Overflows */
+.-rel {
+	position: relative !important;
+}
+.-hidden {
+	display: none !important;
+}
+.-hide {
+	display: none;
+}
+.-trans {
+	opacity: 0;
+}
+.-hide-overflow {
+	overflow: hidden !important;
+}

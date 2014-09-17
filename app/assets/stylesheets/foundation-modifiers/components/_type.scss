@@ -1,0 +1,189 @@
+@import "global";
+@import "../functions";
+
+/* Font Sizes */
+/********************
+* Font Sizes
+********************/
+
+.-xsmall-font-size {
+	font-size: $font-size-xsmall !important;
+}
+.-small-font-size {
+	font-size: $font-size-small !important;
+}
+.-base-font-size {
+	font-size: $font-size-base !important;
+}
+.-large-font-size {
+	font-size: $font-size-large !important;
+}
+.-xlarge-font-size {
+	font-size: $font-size-xlarge !important;
+}
+
+/* Font sizes for larger devices */
+@media #{$medium-up} {
+	.-xsmall-font-size {
+		font-size: $scaled-font-size-xsmall !important;
+	}
+	.-small-font-size {
+		font-size: $scaled-font-size-small !important;
+	}
+	.-base-font-size {
+		font-size: $scaled-font-size-base !important;
+	}
+	.-large-font-size {
+		font-size: $scaled-font-size-large !important;
+	}
+	.-xlarge-font-size {
+		font-size: $scaled-font-size-xlarge !important;
+	}
+}
+
+
+/* Text Color */
+.-primary-color {
+	color: $primary-color !important;
+}
+.-secondary-color {
+	color: $secondary-color !important;
+}
+.-alert-color {
+	color: $alert-color !important;
+}
+.-warning-color {
+	color: $warning-color !important;
+}
+.-info-color {
+	color: $info-color !important;
+}
+.-white-color {
+	color: $white !important;
+}
+.-black-color {
+	color: $black !important;
+}
+
+/* Grayscale Colors */
+.-gray-color {
+	color: $gray !important;
+}
+.-gray-90-color {
+	color: $gray-90 !important;
+}
+.-gray-80-color {
+	color: $gray-80 !important;
+}
+.-gray-70-color {
+	color: $gray-70 !important;
+}
+.-gray-60-color {
+	color: $gray-60 !important;
+}
+.-gray-50-color {
+	color: $gray-50 !important;
+}
+.-gray-40-color {
+	color: $gray-40 !important;
+}
+.-gray-30-color {
+	color: $gray-30 !important;
+}
+.-gray-20-color {
+	color: $gray-20 !important;
+}
+.-gray-10-color {
+	color: $gray-10 !important;
+}
+
+/* Text Alignment */
+.-tar {
+	text-align: right !important;
+}
+.-tal {
+	text-align: left !important;
+}
+.-tac {
+	text-align: center !important;
+}
+.-taj {
+	text-align: justify !important;
+}
+
+@each $mediaQuery in $mediaQueries {
+	$index: index($mediaQueries, $mediaQuery);
+	$reference: nth($baselineRefs, $index);
+	
+	@media #{$mediaQuery} {
+		.#{$reference}-tar {
+			text-align: right;
+		}
+		.#{$reference}-tal {
+			text-align: left;
+		}
+		.#{$reference}-tac {
+			text-align: center;
+		}
+		.#{$reference}-taj {
+			text-align: justify;
+		}
+	}
+}
+
+/* Font Families */
+.-sans-serif-ff {
+	font-family: $sans-serif-font-family !important;
+}
+.-sans-serif {
+	font-family: $sans-serif-font-family !important;
+	font-weight: $sans-serif-font-weight !important;
+	font-style: $sans-serif-font-style !important;	
+}
+.-serif-ff {
+	font-family: $serif-font-family !important;
+}
+.-serif {
+	font-family: $serif-font-family !important;
+	font-weight: $serif-font-weight !important;
+	font-style: $serif-font-style !important;
+}
+
+/* White Space */
+.-pre-line {
+	white-space: pre-line !important;
+}
+.-nowrap {
+	white-space: nowrap !important;
+}
+
+/* Indenting */
+.-indent {
+	text-indent: $large-baseline;
+}
+
+/* Text Styling */
+.-uppercase {
+	text-transform: uppercase !important;
+}
+.-underline {
+	text-decoration: underline !important;
+}
+.-italic {
+	font-style: italic !important;
+}
+.-bold {
+	font-weight: bold !important;
+}
+.-font-smoothing {
+	@include font-smoothing();
+}
+
+
+/* Line Heights */
+.-lhx2 {
+	line-height: 2 !important;
+}
+.-lhx3 {
+	line-height: 3 !important;
+}

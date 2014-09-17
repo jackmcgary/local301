@@ -1,0 +1,31 @@
+$local301-main-top-bar-height: rem-calc(80);
+
+.local301-main-top-bar {
+	height: $local301-main-top-bar-height;
+	min-width: rem-calc(600);
+	line-height: $local301-main-top-bar-height;
+	position: relative;
+}
+
+.local301-main-top-bar__logo {
+	position: absolute;		
+	width: rem-calc(300);
+	left: 50%;
+	margin-left: -78px;
+}
+
+@media #{$medium-up} {
+	.local301-main-top-bar {
+		width: $local301-side-navigation-display-width + 0px;
+		min-width: $local301-side-navigation-display-width + 0px;
+	}
+
+	.local301-main-top-bar__logo {
+		width: 93%;
+		left: rem-calc(20);
+		margin-left: 0;
+
+		text-align: center;
+
+	}
+}

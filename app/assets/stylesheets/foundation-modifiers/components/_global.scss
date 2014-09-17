@@ -1,0 +1,97 @@
+// Get numeric value of $rem-base
+$rem-base-val: strip-unit($rem-base) !default;
+
+
+// Base font size at $medium-up resolution
+$scaled-rem-base-val: $rem-base !default;
+
+
+// Vertical Heights
+$xsmall-baseline-val: 5 !default;
+$xsmall-baseline: convert-to-rem($xsmall-baseline-val) !default;
+
+$small-baseline-val: 8 !default;
+$small-baseline: convert-to-rem($small-baseline-val) !default;
+
+$default-baseline-val: 15 !default;
+$default-baseline: convert-to-rem($default-baseline-val) !default;
+
+$large-baseline-val: 30 !default;
+$large-baseline: convert-to-rem($large-baseline-val) !default;
+
+$xlarge-baseline-val: 40 !default;
+$xlarge-baseline: convert-to-rem($xlarge-baseline-val) !default;
+
+$xxlarge-baseline-val: 50 !default;
+$xxlarge-baseline: convert-to-rem($xxlarge-baseline-val) !default;
+
+$xxxlarge-baseline-val: 70 !default;
+$xxxlarge-baseline: convert-to-rem($xxxlarge-baseline-val) !default;
+
+
+
+// Responsive Margins + Padding
+$mediaQueries: ($small-only, $medium-only, $medium-up, $large-only, $large-up) !default;
+$baselineRefs: "-small", "-medium", "-medium-up", "-large", "-large-up" !default;
+
+// Font Families
+$sans-serif-font-family: $body-font-family;
+$sans-serif-font-style: $body-font-style;
+$sans-serif-font-weight: $body-font-weight;
+
+$serif-font-family: Georgia, Times, "Times New Roman", serif;
+$serif-font-style: normal;
+$serif-font-weight: normal;
+
+
+
+// Font Sizes (Smaller Devices Only)
+$font-size-xlarge-val: 24 !default;
+$font-size-xlarge: convert-to-rem($font-size-xlarge-val) !default;
+
+$font-size-large-val: 17 !default;
+$font-size-large: convert-to-rem($font-size-large-val) !default;
+
+$font-size-base-val: $rem-base-val !default;
+$font-size-base: convert-to-rem($rem-base-val) !default;
+
+$font-size-small-val: 14 !default;
+$font-size-small: convert-to-rem($font-size-small-val) !default;
+
+$font-size-xsmall-val: 12 !default;
+$font-size-xsmall: convert-to-rem($font-size-xsmall-val) !default;
+
+
+// Small Font Sizes (Larger Devices Only)
+$scaled-font-size-xlarge-val: 27 !default;
+$scaled-font-size-xlarge: convert-to-rem($scaled-font-size-xlarge-val) !default;
+
+$scaled-font-size-large-val: 24 !default;
+$scaled-font-size-large: convert-to-rem($scaled-font-size-large-val) !default;
+
+$scaled-font-size-base-val: $scaled-rem-base-val !default;
+$scaled-font-size-base: convert-to-rem($scaled-rem-base-val) !default;
+
+$scaled-font-size-small-val: 16 !default;
+$scaled-font-size-small: convert-to-rem($scaled-font-size-small-val) !default;
+
+$scaled-font-size-xsmall-val: 13 !default;
+$scaled-font-size-xsmall: convert-to-rem($scaled-font-size-xsmall-val) !default;
+
+
+// White Color
+$white-color: #fff;
+$black-color: $body-font-color !default;
+
+
+// Gray Scale Colors
+$gray: grayscale($primary-color) !default;
+$gray-90: lighten($gray, 10) !default;
+$gray-80: lighten($gray, 20) !default;
+$gray-70: lighten($gray, 30) !default;
+$gray-60: lighten($gray, 40) !default;
+$gray-50: lighten($gray, 50) !default;
+$gray-40: lighten($gray, 60) !default;
+$gray-30: lighten($gray, 70) !default;
+$gray-20: lighten($gray, 80) !default;
+$gray-10: lighten($gray, 90) !default;
