@@ -3,11 +3,11 @@ strong {
 }
 
 #home-splash {
-	background: url(/assets/gotg.jpg) no-repeat center left;
+	background: url(asset-path("gotg.jpg")) no-repeat center left;
 	background-size: cover;
 }
 #two-col-visual {
-	background: url(/assets/gotg-poster.jpg) no-repeat top center;
+	background: url(asset-path("gotg-poster.jpg")) no-repeat top center;
 	background-size: cover;
 	padding-bottom: 50%;
 }
