@@ -1,33 +1,47 @@
-<h1>Join the Fight</h1>
+<section id="home-splash" class="local301-main-container__full-height container-opacity-bg">
+<div class="clearfix -medium-lpl -medium-up-xxlpt -large-up-xlpl" role="main">
+
+<h2>Join the Fight</h2>
 
 <div class="row">
-  <div class="large-6 columns">
+  <div class="large-4 columns">
     <%= image_tag "prole.jpg" %>
     <h2>Prole</h2>
-    $50/mo
+    <h3><strong>50/mo</strong></h3>
     <ul>
       <li>Wifi and office stuff</li>
       <li>Hot coffee</li>
-      <li>Use of event space</li>
       <li>Volunteer 4 hours a month</li>
     </ul>
   </div>
-  <div class="large-6 columns">
+  <div class="large-4 columns">
     <%= image_tag "bougie.jpg" %>
       <h2>Bougie</h2>
-      $200+/mo includes basic features, PLUS
+      <h3><strong>200/mo</strong></h3>
       <ul>
-        <li>Reserved Desk</li>
         <li>Conference Room Reservations</li>
         <li>24-Hour Access</li>
+        <li>Event Space Reservations</li>
+      </ul>
+  </div>
+  <div class="large-4 columns">
+    <%= image_tag "aristocrat.jpg" %>
+      <h2>Aristocrat</h2>
+      <h3><strong>300/mo</strong></h3>
+      <ul>
+        <li>Reserved Desk</li>
+        <li>Vague feeling of superiority</li>
       </ul>
   </div>
 </div>
 
 
-Members of the Local 301 may be entrepreneurs, freelance professionals, full-time employees, students... anyone who wants to do what they love, make a difference and have fun doing it.
+<div class="row">
+  <div class="large-12 columns">
+    <h3>Apply Here</h3>
+    <%= render 'form' %>
+  </div>
+</div>
 
-To become a member, please fill out our simple application and we'll invite you in to meet with the team and learn more about each other.
-
-<%= render 'form' %>
-
+</div>
+</section>

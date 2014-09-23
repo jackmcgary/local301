@@ -19,6 +19,7 @@ gem 'foundation-rails'
 gem 'carrierwave'
 gem 'cloudinary'
 gem "bower-rails", "~> 0.8.3"
+gem "letter_opener", :group => :development
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby

@@ -32,7 +32,8 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to @member, notice: 'Member was successfully created.' }
+        Mailer.application_notification(@member).deliver
+        format.html { render :create }
         format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new }

@@ -1,3 +1,5 @@
+<div class="ff">
+
 <%= form_for(@member) do |f| %>
   <% if @member.errors.any? %>
     <div id="error_explanation">
@@ -11,77 +13,89 @@
     </div>
   <% end %>
 
+  <style type="text/css">
+    .ff input {color: #FFF}
+    .hide {display:none;}
+  </style>
+
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
+    <%= f.label :phone %>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
+    <%= f.label :street_address %>
     <%= f.text_field :address %>
   </div>
-  <div class="field">
-    <%= f.label :date_of_birth %><br>
-    <%= f.date_select :date_of_birth %>
+  <div class="field hide">
+    <%= f.label :date_of_birth %>
+    <%= f.text_field :date_of_birth %>
   </div>
   <div class="field">
-    <%= f.label :hometown %><br>
+    <%= f.label :hometown %>
     <%= f.text_field :hometown %>
   </div>
   <div class="field">
-    <%= f.label :website %><br>
+    <%= f.label :website %>
     <%= f.text_field :website %>
   </div>
-  <div class="field">
-    <%= f.label :twitter %><br>
+  <div class="field hide">
+    <%= f.label :twitter %>
     <%= f.text_field :twitter %>
   </div>
-  <div class="field">
-    <%= f.label :instagram %><br>
+  <div class="field hide">
+    <%= f.label :instagram %>
     <%= f.text_field :instagram %>
   </div>
-  <div class="field">
-    <%= f.label :facebook %><br>
+  <div class="field hide">
+    <%= f.label :facebook %>
     <%= f.text_field :facebook %>
   </div>
-  <div class="field">
-    <%= f.label :flickr %><br>
+  <div class="field hide">
+    <%= f.label :flickr %>
     <%= f.text_field :flickr %>
   </div>
-  <div class="field">
-    <%= f.label :pinterest %><br>
+  <div class="field hide">
+    <%= f.label :pinterest %>
     <%= f.text_field :pinterest %>
   </div>
-  <div class="field">
-    <%= f.label :linkedin %><br>
+  <div class="field hide">
+    <%= f.label :linkedin %>
     <%= f.text_field :linkedin %>
   </div>
+  <!--
   <div class="field">
-    <%= f.label :joined_on %><br>
+    <%= f.label :joined_on %>
     <%= f.date_select :joined_on %>
   </div>
-  <div class="field">
-    <%= f.label :where_have_you_been %><br>
+  -->
+  <div class="field hide">
+    <%= f.label :where_have_you_been %>
     <%= f.text_area :where_have_you_been %>
   </div>
-  <div class="field">
-    <%= f.label :where_will_you_go %><br>
+  <div class="field hide">
+    <%= f.label :where_will_you_go %>
     <%= f.text_area :where_will_you_go %>
   </div>
   <% if is_admin? %>
   <div class="field">
-    <%= f.label :membership_status %><br>
-    <%= f.select :membership_status, ["Prole","Bougie"], :include_blank => "Not a member" %>
+    <%= f.label :membership_status, "What plan are you interested in?" %>
+    <%= f.select :membership_status, ["Prole","Bougie","Aristocrat"], :include_blank => "Select a plan" %>
   </div>
   <% end %>
   <div class="actions">
-    <%= f.submit %>
+   <button href="" class="large button local301-button -small-xlmb -medium-up-xxxlmb">
+      Submit
+    </button>
+    <p><br/></p>
   </div>
 <% end %>
+
+</div>
